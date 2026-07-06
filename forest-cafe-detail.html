@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forest Cafe · 제주 말차 라떼</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'JejuStoneWall';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+  }
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-1Thin.woff2') format('woff2');font-weight:100;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-2ExtraLight.woff2') format('woff2');font-weight:200;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-3Light.woff2') format('woff2');font-weight:300;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-4Regular.woff2') format('woff2');font-weight:400;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-5Medium.woff2') format('woff2');font-weight:500;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-6SemiBold.woff2') format('woff2');font-weight:600;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-7Bold.woff2') format('woff2');font-weight:700;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-8ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap;}
+  @font-face{font-family:'A2z';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-9Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+  :root{
+    --green-dark:#4b5c3f;
+    --green:#6b7d54;
+    --green-soft:#8a9a72;
+    --cream:#f4f1e9;
+    --cream-2:#eae5d8;
+    --paper:#faf8f2;
+    --text:#3a3a34;
+    --text-soft:#6f6f66;
+    --line:#d9d3c4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'A2z','Noto Sans KR',sans-serif;
+    color:var(--text);
+    background:#d9d2c4;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:430px;
+    margin:0 auto;
+    background:var(--paper);
+    overflow:hidden;
+  }
+  img,.ph{display:block;}
+
+  /* image placeholder */
+  .ph{
+    background:repeating-linear-gradient(45deg,#e6e1d3 0 10px,#ece7da 10px 20px);
+    border:1px solid var(--line);
+    color:#a9a293;
+    font-size:11px;
+    letter-spacing:.04em;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:'Noto Sans KR';
+  }
+  .ph span{opacity:.85;line-height:1.4;}
+
+  .serif{font-family:'Noto Serif KR',serif;}
+  .script{font-family:'Cormorant Garamond',serif;font-style:italic;}
+
+  .eyebrow{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--green-soft);font-size:17px;letter-spacing:.02em;margin-bottom:4px;
+  }
+  .section{padding:52px 26px;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:none;padding:0;text-align:center;}
+  .hero-bg{display:block;width:100%;height:auto;}
+  .hero-copy{
+    position:absolute;top:0;left:0;right:0;padding:34px 26px 0;
+  }
+  .hero-copy::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(45,54,32,.60) 0%,rgba(45,54,32,.34) 20%,rgba(45,54,32,.08) 40%,rgba(45,54,32,0) 55%);
+    z-index:-1;
+  }
+  .brand{display:flex;flex-direction:column;align-items:center;gap:3px;margin-bottom:24px;}
+  .brand .leaf{font-size:17px;color:var(--green);}
+  .brand .name{
+    font-family:'Cormorant Garamond',serif;letter-spacing:.32em;font-weight:500;
+    font-size:17px;color:#ffffff;padding-left:.32em;
+  }
+  .brand .rule{width:64px;height:1.5px;background:#ffffff;opacity:.85;margin-top:9px;}
+  .hero h1{
+    font-family:'JejuStoneWall','Noto Serif KR',serif;font-weight:400;font-size:38px;
+    color:var(--green-dark);letter-spacing:.02em;line-height:1.25;
+  }
+  .hero .sub{margin-top:14px;color:var(--text-soft);font-size:13.5px;font-weight:300;}
+
+  /* feature strip */
+  .strip{
+    background:var(--green-dark);color:#e8ecdd;
+    display:grid;grid-template-columns:repeat(2,1fr);
+    padding:26px 22px;gap:22px 12px;text-align:center;
+  }
+  .strip .item{
+    display:flex;flex-direction:column;align-items:center;gap:9px;
+    font-size:12px;line-height:1.5;font-weight:300;position:relative;
+  }
+  .strip .item:nth-child(odd)::after{
+    content:"";position:absolute;right:-6px;top:6px;bottom:6px;width:1px;
+    background:rgba(255,255,255,.18);
+  }
+  .strip .ico{font-size:20px;}
+  .strip .ico img{width:30px;height:30px;object-fit:contain;display:block;}
+
+  /* ---------- shared ---------- */
+  .center{text-align:center;}
+  h2.title{
+    font-family:'JejuStoneWall','Noto Serif KR',serif;font-weight:400;
+    font-size:27px;color:var(--green-dark);line-height:1.45;margin-top:2px;
+  }
+  .lead{color:var(--text-soft);font-size:13px;font-weight:300;margin-top:12px;}
+
+  /* GOOD INGREDIENTS */
+  .ing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 18px;margin-top:34px;}
+  .ing{text-align:center;}
+  .ing .circ{width:104px;height:104px;border-radius:50%;margin:0 auto 12px;overflow:hidden;}
+  .ing .circ img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ing h4{font-size:14px;font-weight:500;color:var(--green-dark);}
+  .ing p{font-size:12px;color:var(--text-soft);font-weight:300;margin-top:3px;}
+
+  /* PROCESS */
+  .process{background:var(--cream);}
+  .proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;}
+  .proc .num{font-family:'A2z',sans-serif;font-weight:300;font-size:17px;color:var(--green-soft);margin-bottom:8px;}
+  .proc .pic{width:100%;height:104px;border-radius:3px;margin-bottom:11px;overflow:hidden;}
+  .proc .pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .proc h4{font-size:12.5px;font-weight:500;color:var(--green-dark);line-height:1.4;}
+  .proc p{font-size:11.5px;color:var(--text-soft);font-weight:300;margin-top:2px;}
+
+  /* QUALITY (stacked) */
+  .quality{padding:0;}
+  .quality .pic{width:100%;height:280px;overflow:hidden;}
+  .quality .pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .quality .body{padding:48px 26px;background:var(--paper);}
+  .q-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;margin-top:30px;}
+  .q-item{display:flex;flex-direction:column;gap:7px;align-items:center;text-align:center;}
+  .q-item .ico{font-size:24px;color:var(--green);align-self:center;}
+  .q-item .ico img{width:30px;height:30px;object-fit:contain;display:block;}
+  .q-item h4{font-size:13.5px;font-weight:600;color:var(--green-dark);}
+  .q-item p{font-size:12px;color:var(--text-soft);font-weight:300;line-height:1.5;}
+
+  /* SIGNATURE */
+  .signature{background:var(--paper);}
+  .sig-list{margin-top:30px;display:flex;flex-direction:column;gap:14px;}
+  .sig-row{
+    display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center;
+    background:var(--cream);border-radius:6px;padding:14px;
+  }
+  .sig-row .pic{width:96px;height:96px;border-radius:4px;overflow:hidden;flex:none;}
+  .sig-row .pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .sig-row .n{font-family:'A2z',sans-serif;font-weight:300;font-size:14px;color:var(--green-soft);}
+  .sig-row h4{font-size:15px;font-weight:600;color:var(--green-dark);margin:2px 0 5px;}
+  .sig-row p{font-size:12px;color:var(--text-soft);font-weight:300;line-height:1.5;}
+
+  /* REVIEWS */
+  .reviews{background:var(--cream);}
+  .rev-list{margin-top:30px;display:flex;flex-direction:column;gap:14px;}
+  .rev{
+    display:grid;grid-template-columns:78px 1fr;gap:16px;align-items:center;
+    background:var(--paper);border-radius:6px;padding:16px;
+  }
+  .rev .pic{width:78px;height:78px;border-radius:6px;overflow:hidden;flex:none;}
+  .rev .pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .rev .stars{color:#c8a94e;font-size:13px;letter-spacing:2px;}
+  .rev .stars b{color:var(--text);font-weight:600;margin-left:7px;letter-spacing:0;font-size:12px;}
+  .rev h4{font-size:14px;font-weight:600;color:var(--green-dark);margin:5px 0 4px;line-height:1.4;}
+  .rev p{font-size:12px;color:var(--text-soft);font-weight:300;line-height:1.5;}
+  .rev .who{display:block;margin-top:5px;font-size:11.5px;color:var(--green-soft);}
+
+  /* WAYS */
+  .ways{background:var(--paper);}
+  .ways-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px;}
+  .way{text-align:center;}
+  .way .tag{
+    font-size:12px;font-weight:500;color:var(--green-dark);margin-bottom:11px;
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .way .pic{width:100%;height:140px;border-radius:4px;margin-bottom:11px;overflow:hidden;}
+  .way .pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .way h4{font-size:12px;font-weight:500;color:var(--text);}
+
+  /* PRODUCT INFO */
+  .info{background:var(--cream);}
+  .spec{margin-top:22px;}
+  .spec dl{display:grid;grid-template-columns:92px 1fr;row-gap:12px;border-top:1px solid var(--line);padding-top:20px;}
+  .spec dt{font-size:12.5px;color:var(--green-dark);font-weight:500;}
+  .spec dd{font-size:12.5px;color:var(--text-soft);font-weight:300;line-height:1.5;}
+  .note{font-size:11px;color:#a29b8b;margin-top:14px;}
+
+  .package{display:grid;grid-template-columns:1fr 120px;gap:16px;align-items:center;margin-top:38px;}
+  .package .pic{width:120px;height:120px;border-radius:4px;overflow:hidden;flex:none;}
+  .package .pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .package h3{font-size:17px;font-weight:600;color:var(--green-dark);margin-bottom:7px;}
+  .package p{font-size:12.5px;color:var(--text-soft);font-weight:300;line-height:1.55;}
+
+  /* CTA / DIRECTIONS */
+  .cta{background:var(--green-dark);color:#eef0e2;padding:44px 26px;}
+  .cta-title{
+    font-family:'JejuStoneWall','Noto Serif KR',serif;font-weight:400;
+    color:#ffffff;font-size:27px;text-align:center;margin-bottom:24px;letter-spacing:.02em;
+  }
+  .dir-wrap{display:block;}
+  .dir-wrap .map{width:100%;border-radius:10px;overflow:hidden;background:#e6e1d3;margin-bottom:24px;}
+  .dir-wrap .map img{width:100%;height:auto;display:block;}
+  .dir-info{display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .dir-info .lead2{font-size:13.5px;font-weight:300;color:#eef0e2;line-height:1.7;margin-bottom:18px;}
+  .dir-info .addr{list-style:none;margin-bottom:22px;}
+  .dir-info .addr li{
+    font-size:13px;color:#dfe4d2;font-weight:300;line-height:1.6;
+    display:flex;gap:9px;padding:5px 0;justify-content:center;
+  }
+  .dir-info .addr li .lb{color:#c6d2ac;flex:none;width:16px;text-align:center;}
+  .cta .btn{
+    display:inline-block;border:1px solid #c6d2ac;color:#eef0e2;
+    padding:12px 40px;border-radius:28px;font-size:13px;letter-spacing:.08em;text-decoration:none;
+  }
+
+  /* FOOTER */
+  .foot{background:var(--green);color:#f0f2e6;text-align:center;padding:44px 26px;}
+  .foot .eb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;opacity:.85;}
+  .foot h3{font-family:'JejuStoneWall','Noto Serif KR',serif;font-weight:400;font-size:24px;margin:9px 0 5px;}
+  .foot p{font-size:12.5px;font-weight:300;opacity:.9;}
+  .foot .logo{margin-top:20px;font-family:'Cormorant Garamond',serif;letter-spacing:.28em;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <img class="hero-bg" src="images/main.png" alt="제주 말차 라떼">
+    <div class="hero-copy">
+      <div class="brand">
+        <span class="name">FOREST CAFE</span>
+        <span class="rule"></span>
+      </div>
+      <h1>제주 말차 라떼</h1>
+      <p class="sub">자연의 깊은 맛을 담은<br>포레스트 카페의 시그니처</p>
+    </div>
+  </header>
+
+  <!-- GOOD INGREDIENTS -->
+  <section class="section center">
+    <h2 class="title">좋은 재료가<br>맛의 차이를 만듭니다</h2>
+    <p class="lead">하나하나 정성스럽게 고른 재료로<br>건강하고 깊은 맛을 느껴보세요.</p>
+    <div class="ing-grid">
+      <div class="ing"><div class="circ"><img src="images/item_01.png" alt="제주 유기농 말차"></div><h4>제주 유기농 말차</h4><p>깊고 진한 풍미</p></div>
+      <div class="ing"><div class="circ"><img src="images/item_02.png" alt="1A 등급 우유"></div><h4>1A 등급 우유</h4><p>신선하고 고소한 맛</p></div>
+      <div class="ing"><div class="circ"><img src="images/item_03.png" alt="프리미엄 생크림"></div><h4>프리미엄 생크림</h4><p>더 부드럽고 풍부하게</p></div>
+      <div class="ing"><div class="circ"><img src="images/item_04.png" alt="자연 그대로의 꿀"></div><h4>자연 그대로의 꿀</h4><p>은은한 단맛</p></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process">
+    <h2 class="title">정성 가득한<br>제작 과정</h2>
+    <p class="lead">맛있는 한 잔을 위해<br>모든 과정을 정성스럽게 준비합니다.</p>
+    <div class="proc-grid">
+      <div class="proc"><div class="num">01</div><div class="pic"><img src="images/item_05.png" alt="제주 유기농 말차 저온 추출"></div><h4>제주 유기농 말차</h4><p>저온 추출</p></div>
+      <div class="proc"><div class="num">02</div><div class="pic"><img src="images/item_06.png" alt="신선한 우유와 생크림 블렌딩"></div><h4>신선한 우유와</h4><p>생크림 블렌딩</p></div>
+      <div class="proc"><div class="num">03</div><div class="pic"><img src="images/item_07.png" alt="최적의 비율로 부드럽게 완성"></div><h4>최적의 비율로</h4><p>부드럽게 완성</p></div>
+    </div>
+  </section>
+
+  <!-- QUALITY -->
+  <section class="quality">
+    <div class="pic"><img src="images/item_08.png" alt="철저한 품질 관리"></div>
+    <div class="body">
+      <h2 class="title">안심하고 마실 수 있는<br>철저한 품질 관리</h2>
+      <p class="lead">철저한 위생 관리와 엄선된 재료로<br>안전하고 건강한 음료를 제공합니다.</p>
+      <div class="q-grid">
+        <div class="q-item"><span class="ico">&#127981;</span><h4>HACCP 인증</h4><p>안전한 제조 환경</p></div>
+        <div class="q-item"><span class="ico"><img src="images/icon_03.png" alt=""></span><h4>꼼꼼한 품질 관리</h4><p>정기적인 품질 점검</p></div>
+        <div class="q-item"><span class="ico">&#127793;</span><h4>엄선한 신선 재료</h4><p>신선한 재료만 사용</p></div>
+        <div class="q-item"><span class="ico">&#128230;</span><h4>위생적인 제조 과정</h4><p>청결한 환경에서 제조</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE -->
+  <section class="section signature center">
+    <h2 class="title">제주 말차 라떼의 특별함</h2>
+    <div class="sig-list" style="text-align:left;">
+      <div class="sig-row">
+        <div class="pic"><img src="images/item_09.png" alt="인공 첨가물 무첨가"></div>
+        <div><span class="n">01</span><h4>인공 첨가물 무첨가</h4><p>향료와 색소 없이 말차 본연의 맛과 색을 그대로 담았어요.</p></div>
+      </div>
+      <div class="sig-row">
+        <div class="pic"><img src="images/item_10.png" alt="주문 즉시 제조"></div>
+        <div><span class="n">02</span><h4>주문 즉시 제조</h4><p>미리 만들어두지 않고 주문 후 바로 만들어 언제나 신선하게 즐길 수 있어요.</p></div>
+      </div>
+      <div class="sig-row">
+        <div class="pic"><img src="images/item_11.png" alt="당도 맞춤 선택"></div>
+        <div><span class="n">03</span><h4>당도 맞춤 선택</h4><p>덜 달게부터 더 달게까지, 그날의 기분과 취향에 맞게 골라보세요.</p></div>
+      </div>
+      <div class="sig-row">
+        <div class="pic"><img src="images/item_12.png" alt="정성 담은 라떼 아트"></div>
+        <div><span class="n">04</span><h4>정성 담은 라떼 아트</h4><p>한 잔 한 잔 정성껏, 눈으로 먼저 즐기는 비주얼까지 완성했어요.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews center">
+    <h2 class="title">고객님들의 실제 리뷰</h2>
+    <div class="rev-list" style="text-align:left;">
+      <div class="rev">
+        <div class="pic"><img src="images/review_03.png" alt="리뷰 1"></div>
+        <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;<b>5.0</b></div><h4>말차 향이 정말 진하고 깊어요!</h4><p>우유와의 밸런스가 완벽해서 매일 마시고 싶어요.</p><span class="who">– 김도레님</span></div>
+      </div>
+      <div class="rev">
+        <div class="pic"><img src="images/review_02.png" alt="리뷰 2"></div>
+        <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;<b>5.0</b></div><h4>달지 않고 깔끔해서 더 좋아요.</h4><p>텁텁함 없이 깔끔한 단맛이 인상적이에요 :)</p><span class="who">– 오지나님</span></div>
+      </div>
+      <div class="rev">
+        <div class="pic"><img src="images/review_01.png" alt="리뷰 3"></div>
+        <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;<b>5.0</b></div><h4>라떼 아트까지 완벽!</h4><p>보기에도 예쁘고 맛도 최고예요. 포레스트 카페 단골 예약입니다!</p><span class="who">– 인트로코님</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAYS TO ENJOY -->
+  <section class="section ways center">
+    <h2 class="title">다양하게 즐겨보세요</h2>
+    <div class="ways-grid">
+      <div class="way"><div class="pic"><img src="images/item_14.png" alt="말차 프라페"></div><h4>말차 프라페</h4></div>
+      <div class="way"><div class="pic"><img src="images/item_13.png" alt="말차 크림 라떼"></div><h4>말차 크림 라떼</h4></div>
+      <div class="way"><div class="pic"><img src="images/item_15.png" alt="말차 아포가토"></div><h4>말차 아포가토</h4></div>
+    </div>
+  </section>
+
+  <!-- PRODUCT INFO -->
+  <section class="section info">
+    <h2 class="title">상품 정보</h2>
+    <div class="spec">
+      <dl>
+        <dt>제품명</dt><dd>제주 말차 라떼</dd>
+        <dt>용량</dt><dd>16oz (480ml)</dd>
+        <dt>원재료명</dt><dd>우유(국내산), 말차(제주산 유기농), 생크림(국내산), 꿀, 정제수</dd>
+        <dt>알레르기 정보</dt><dd>우유 함유</dd>
+        <dt>보관방법</dt><dd>냉장 보관 (0~10℃)</dd>
+      </dl>
+    </div>
+
+    <div class="package">
+      <div>
+        <h3>친환경 패키지</h3>
+        <p>환경을 생각한 친환경 컵과 빨대로 지구를<br>보호하는 작은 실천에 동참해 주세요.</p>
+      </div>
+      <div class="pic"><img src="images/item_16.png" alt="친환경 패키지"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="cta-title">오시는 길</h2>
+    <div class="dir-wrap">
+      <div class="map"><img src="images/map.png" alt="포레스트 카페 오시는 길"></div>
+      <div class="dir-info">
+        <p class="lead2">자연을 담은 한 잔의 여유,<br>포레스트 카페에서 만나보세요.</p>
+        <ul class="addr">
+          <li>제주특별자치도 제주시 산림로 123</li>
+          <li>매일 09:00 – 22:00</li>
+          <li><span class="lb">&#9742;</span>064-123-4567</li>
+        </ul>
+        <a class="btn" href="#">매장 찾기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER BANNER -->
+  <footer class="foot">
+    <h3>자연을 담은 한 잔의 여유</h3>
+    <p>포레스트 카페와 함께 일상의 쉼표를 찍어보세요.</p>
+    <div class="logo">FOREST CAFE</div>
+  </footer>
+
+</div>
+</body>
+</html>
